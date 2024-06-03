@@ -1,0 +1,32 @@
+﻿@page "/authentication/emailconfirmation"
+@using System.Web;@*add this to get HttpUtility*@
+@inject NavigationManager navigation
+@inject IAuthenticationService authenticationService
+<div class="card bg-dark">
+    <div class="card-body">
+        <h4 class="card-title">Email Confirmation</h4>
+
+        <div hidden=@result class="alert alert-danger">
+            <h5>Error occurred while verifying your Email.</h5>
+        </div>
+        <div hidden=@(!result) class="alert alert-success">
+            <h5>Your email has been successfully confirmed. Please <a style="font-size:18px;text-decoration:none;" class="btn btn-warning " href="/login">Login</a></h5>
+        </div>
+
+
+    </div>
+</div>
+
+@code {
+    string email, token;
+    bool result;
+    protected override async Task OnInitializedAsync()
+    {
+        var absoluteUri = new Uri(navigation.Uri);
+        var queryParam = HttpUtility.ParseQueryString(absoluteUri.Query);
+        email = queryParam["email"];
+        token = queryParam["token"];
+        result = await authenticationService.ConfirmEmail(email, token);
+    }
+}
+

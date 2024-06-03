@@ -1,0 +1,48 @@
+﻿<nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0  ">
+    <a class="navbar-brand mx-2"  href="/">
+        <img src="icon-512.png" style="margin-left:13px;" width="50" />
+        <div class="ml-0 mt-0">
+            <strong style="color:#f107e7">HotelApp</strong>
+        </div>
+
+    </a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse pr-2  "  id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="my-0 navbar-nav" >
+           <AuthorizeView>
+               <Authorized>
+                   <li class="nav-item p-0" >
+                       <NavLink class="nav-link">
+                           <span class="p-2">Wellcom , @context.User.Identity.Name</span>
+                       </NavLink>
+                   </li>
+                   <li class="nav-item p-0">
+                       <NavLink class="nav-link" href="logout">
+                           <span class="p-2">logout</span>
+                       </NavLink>
+                   </li>
+               </Authorized>
+               <NotAuthorized>
+                    <li class="nav-item p-0 ">
+                        <NavLink class="nav-link" href="register">
+                            <span class="p-2">
+                                Register
+                            </span>
+                        </NavLink>
+                    </li>
+                    <li class="nav-item p-0 ">
+                        <NavLink class="nav-link" href="login">
+                            <span class="p-2">
+                                Login
+                            </span>
+                        </NavLink>
+                    </li>
+               </NotAuthorized>
+           </AuthorizeView>
+        </ul>
+    </div>
+</nav>

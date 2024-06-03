@@ -1,0 +1,41 @@
+﻿@page "/success-payment"
+@inject IRoomOrderService roomOrderService
+
+<div class="container">
+    @if (!IsPaymentComplete)
+    {
+        <div style="position: fixed; margin-top: 20vh; left: 50%; margin-left: -130px;">
+            <img src="images/Loading.gif" />
+        </div>
+    }
+    else
+    {
+            <div class="row">
+                <div class="col-10 offset-1 text-center">
+                    <h2 class="text-warning">Booking Confirmed</h2>
+                    <h5>Your room has been booked successfully with order id @OrderId</h5>
+                    <img src="/images/confirmed.jpg" style="border-radius:20px;width: 100%;height: 60vh;" />
+                    <a href="hotel-room" class="btn btn-secondary m-1">Back to Rooms</a>
+                </div>
+
+            </div>
+    }
+</div>
+
+@code {
+    public bool IsPaymentComplete{ get; set; }
+    public int OrderId{ get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var orderDetails = await LocalStorage.GetItemAsync<RoomOrderDetailDTO>(SD.Local_RooomOrderDetails);
+        OrderId = orderDetails.Id;
+        var finalRoomOrder = await roomOrderService.MarkPaymentSuccessfull(orderDetails);
+        if (finalRoomOrder.Status == SD.Booked)
+        {
+            await LocalStorage.RemoveItemAsync(SD.Local_RooomOrderDetails);
+            await LocalStorage.RemoveItemAsync(SD.InitialRoomBookingInfo);
+            IsPaymentComplete = true;
+        }
+    }
+}

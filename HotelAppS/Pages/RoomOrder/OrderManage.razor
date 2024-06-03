@@ -1,0 +1,136 @@
+﻿@page "/hotel-order/details/{Id:int}"
+
+@using Business.Repo
+@inject IRoomOrderRepo roomOrderDetailRepo
+
+<div class="mt-4 px-md-1 mx-md-1">
+    <div class="row p-2 my-3 bg-dark" style="border-radius:20px; ">
+        <div class="col-6 pt-2 pl-4 text-info">
+            <h2>Booking Details </h2>
+        </div>
+        <div class="col-6 pt-2 col-md-3 offset-md-3">
+            <a href="/hotel-order" class="btn btn-info form-control">Back to Orders</a>
+        </div>
+        <div class="col-12 col-lg-4 px-4 mt-md-0">
+            <div class="row px-2 text-success border-bottom">
+                <div class="py-1"><p style="font-size:x-large;margin:0px;">@HotelBooking?.hotelRoomDTO?.Name?</p></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="pt-4 text-light">
+                        <strong>Occupancy : @HotelBooking?.hotelRoomDTO?.Occupancy adults </strong><br />
+                        <strong>Area : @HotelBooking?.hotelRoomDTO?.Area m<sub style="vertical-align: super; font-size: small;">2</sub></strong><br />
+                        <h5 class="text-warning font-weight-bold pt-4"> @HotelBooking?.hotelRoomDTO?.TotalAmount <span>USD</span></h5>
+                        <strong style="font-size:18px">Cost for @HotelBooking?.hotelRoomDTO?.TotalNights nights</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pt-3 mt-2">
+                <div class="btn-group-vertical col-12">
+                    @if (HotelBooking.Status == SD.Booked)
+                    {
+                    <button @onclick="ConfirmCheckIn" class="btn btn-success p-2 mb-3">Confirm Check In</button>
+                        
+                    }
+                    @if (HotelBooking.Status == SD.CheckedIn)
+                    {
+                    <button @onclick="ConfirmCheckOut" class="btn btn-warning p-2 mb-3">Confirm Check Out </button>
+                        
+                    }
+                    @if (HotelBooking.Status == SD.Booked || HotelBooking.Status==SD.Cancelled)
+                    {
+                    <button @onclick="CancelBooking" class="btn btn-danger p-2 mb-3">Cancel Booking </button>
+                        
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 px-4 mt-md-0">
+            <div class="row px-2 text-success border-bottom"><div class="py-1"><p style="font-size:x-large;margin:0px;">Order Details</p></div></div>
+            <div class="form-group pt-2">
+                <label class="text-warning">Booking Status</label>
+                <InputText @bind-Value="HotelBooking.Status" type="text" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="text-warning">Name</label>
+                <InputText @bind-Value="HotelBooking.Name" type="text" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="text-warning">Phone</label>
+                <InputText @bind-Value="HotelBooking.Phone" type="text" disabled class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="text-warning">Email</label>
+                <InputText @bind-Value="HotelBooking.Email" type="text" disabled class="form-control" />
+            </div>
+
+        </div>
+        <div class="col-12 col-lg-4 px-4 mt-md-0">
+            <div class="row px-2 text-success border-bottom"><div class="py-1"><p style="font-size:x-large;margin:0px;">Check In/Out</p></div></div>
+            <div class="form-group pt-2">
+                <label class="text-warning">Check in Date</label>
+                <span class="form-control">@HotelBooking.CheckInDate</span>
+            </div>
+
+            <div class="form-group">
+                <label class="text-warning">Check out Date</label>
+                <span class="form-control">@HotelBooking.CheckOutDate</span>
+            </div>
+            @if(HotelBooking.Status==SD.CheckedIn|| HotelBooking.Status==SD.CheckedOut_Completed)
+            {
+            <div class="form-group">
+                <label class="text-warning">Actual Check In Date</label>
+                <span class="form-control">@HotelBooking.ActualCheckInDate</span>
+            </div>
+                
+            }
+            @if (HotelBooking.Status == SD.CheckedOut_Completed)
+            {
+            <div class="form-group">
+                <label class="text-warning">Actual Check Out Date</label>
+                <span class="form-control">@HotelBooking.ActualCheckOutDate</span>
+            </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+@code{
+    [Parameter]
+    public int Id{ get; set; }
+
+
+    private RoomOrderDetailDTO HotelBooking { get; set; } =  new RoomOrderDetailDTO() { hotelRoomDTO = new HotelRoomDTOS() };
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != 0)
+        {
+            HotelBooking = await roomOrderDetailRepo.GetOrderDetail(Id);
+        }
+
+    }
+
+    private async Task ConfirmCheckIn()
+    {
+        await roomOrderDetailRepo.UpdateOrderStatus(HotelBooking.Id, SD.CheckedIn);
+        HotelBooking = await roomOrderDetailRepo.GetOrderDetail(Id);
+    }
+
+    private async Task ConfirmCheckOut()
+    {
+        await roomOrderDetailRepo.UpdateOrderStatus(HotelBooking.Id, SD.CheckedOut_Completed);
+        HotelBooking = await roomOrderDetailRepo.GetOrderDetail(Id);
+    }
+
+    private async Task CancelBooking()
+    {
+        await roomOrderDetailRepo.UpdateOrderStatus(HotelBooking.Id, SD.Cancelled);
+        HotelBooking = await roomOrderDetailRepo.GetOrderDetail(Id);
+    }
+}

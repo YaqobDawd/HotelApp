@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+<div class="container mt-2">
+    <div style="margin-left:-40px ;top:30px;position:relative" class="btn-group-vertical ">
+        <button class="btn btn-success btn-lg mt-3" @onclick=@(()=>Print("print"))>Print Invoice</button>
+        <button class="btn btn-warning btn-lg mt-3" @onclick=@(()=>Print("download"))>Download Invoice</button>
+        <a class="btn btn-info btn-lg mt-3" href="/">Back To Home</a>
+    </div>
+
+    <div style="margin-top:-28vh;" class="content">
+        @Body
+    </div>
+</div>
+
+@code {
+
+    public async Task Print(string verb)
+    {
+        await java.InvokeVoidAsync("printReport", verb);
+    }
+}

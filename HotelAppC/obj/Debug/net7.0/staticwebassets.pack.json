@@ -1,0 +1,165 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\obj\\Debug\\net7.0\\compressed\\puh9tkb2en.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\obj\\Debug\\net7.0\\scopedcss\\bundle\\HotelAppC.styles.css",
+      "PackagePath": "staticwebassets\\HotelAppC.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\obj\\Debug\\net7.0\\service-worker-assets.js",
+      "PackagePath": "staticwebassets\\service-worker-assets.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\obj\\Debug\\net7.0\\service-worker\\service-worker.published.js",
+      "PackagePath": "staticwebassets\\service-worker.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\1.jpg",
+      "PackagePath": "staticwebassets\\Images\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\2.jpg",
+      "PackagePath": "staticwebassets\\Images\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\3.jpg",
+      "PackagePath": "staticwebassets\\Images\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\4.jpg",
+      "PackagePath": "staticwebassets\\Images\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\5.jpg",
+      "PackagePath": "staticwebassets\\Images\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Images\\confirmed.jpg",
+      "PackagePath": "staticwebassets\\Images\\confirmed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\JS\\StripePayment.js",
+      "PackagePath": "staticwebassets\\JS\\StripePayment.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\JS\\common.js",
+      "PackagePath": "staticwebassets\\JS\\common.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\JS\\html2canvas.js",
+      "PackagePath": "staticwebassets\\JS\\html2canvas.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\JS\\jspdf.js",
+      "PackagePath": "staticwebassets\\JS\\jspdf.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Loading.gif",
+      "PackagePath": "staticwebassets\\Loading.gif"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\Loading.png",
+      "PackagePath": "staticwebassets\\Loading.png"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\icon-512.png",
+      "PackagePath": "staticwebassets\\icon-512.png"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\manifest.json",
+      "PackagePath": "staticwebassets\\manifest.json"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppC\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.HotelAppC.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.HotelAppC.props",
+      "PackagePath": "build\\HotelAppC.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.HotelAppC.props",
+      "PackagePath": "buildMultiTargeting\\HotelAppC.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.HotelAppC.props",
+      "PackagePath": "buildTransitive\\HotelAppC.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

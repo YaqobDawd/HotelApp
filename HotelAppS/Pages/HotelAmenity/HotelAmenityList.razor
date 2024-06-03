@@ -1,0 +1,100 @@
+﻿@page "/hotel-amenity"
+@inject IHotelAmenityRepo hotelAmenityRepo
+
+
+
+<div class="row mt-3">
+    <div class="col-8">
+        <h3 class="card-title text-info">Hotel Amenity</h3>
+    </div>
+    <div class="col-3 offset-1">
+        <NavLink href="hotel-amenity/create" class="btn btn-info form-control">Add New Amenity</NavLink>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Amenity Name</th>
+                    <th>Amenity Icon</th>
+                    <th>Amenity Timming</th>
+                    <th>Amenity Description</th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Amenity.Any())
+                {
+                    @foreach (var item in Amenity)
+                    {
+                        <tr>
+                            <td>@item.AmenityName</td>
+                            <td><span class="@item.AmenityIcon"></span></td>
+                            <td>@item.AmenityTimming</td>
+                            <td>@item.AmenityDescription</td>
+                            <td>
+                                <NavLink href="@($"hotel-amenity/edit/{item.AmenityId}")" class="btn btn-primary">Edit</NavLink>
+                                <button class="btn btn-danger" @onclick="()=>DeleteAmenity(item.AmenityId)">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <th colspan="5">
+                            No Amenity
+                        </th>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@code{
+    [CascadingParameter]
+    public Task<AuthenticationState>? _authen{ get; set; }
+
+    public IEnumerable<HotelAmenityDTO> Amenity { get; set; } = new List<HotelAmenityDTO>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await _authen;
+       if (!authenticationState.User.Identity.IsAuthenticated)    // agar bo user admin bit de b vi sheway bit  if(!authentication.User.IsInRole(Sd.Role_Admin))
+            {
+                var uri = new Uri(Navigation.Uri);
+                Navigation.NavigateTo($"Identity/account/login?returnurl={uri.LocalPath}",true);
+            }
+        
+
+        Amenity = await hotelAmenityRepo.GetAllHotelAmenity();
+    }
+
+    public async Task DeleteAmenity(int? amenityid)
+    {
+        bool DelConfrim = await java.ShowConfirm();
+        if(DelConfrim && amenityid != null)
+        {
+            await hotelAmenityRepo.DeleteHotelAmenity(amenityid.Value);
+            Amenity = await hotelAmenityRepo.GetAllHotelAmenity();
+            await java.ToastrSuccess("Hotel Amenity is Deleted");
+        }
+    }
+}
+
+
+
+

@@ -1,0 +1,11 @@
+C:\Users\jacob\Desktop\HotelApp1\DTOS\bin\Debug\net7.0\DTOS.deps.json
+C:\Users\jacob\Desktop\HotelApp1\DTOS\bin\Debug\net7.0\DTOS.dll
+C:\Users\jacob\Desktop\HotelApp1\DTOS\bin\Debug\net7.0\DTOS.pdb
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.AssemblyInfoInputs.cache
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.AssemblyInfo.cs
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.csproj.CoreCompileInputs.cache
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.dll
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\refint\DTOS.dll
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\DTOS.pdb
+C:\Users\jacob\Desktop\HotelApp1\DTOS\obj\Debug\net7.0\ref\DTOS.dll

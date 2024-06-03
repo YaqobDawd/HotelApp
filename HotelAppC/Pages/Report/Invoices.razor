@@ -1,0 +1,115 @@
+﻿@page "/invoice/{Id:int}"
+@using System.Globalization;
+@inject IRoomOrderService roomOrderDetailService
+@layout InvoiceLayout
+<div id="invoice" class="invoice-box">
+
+    <div class="text-center bg-secondary text-white p-3" style="font-size:22px;margin-top:-10px">
+        Room's Booking Invoice
+    </div>
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <div style="margin-top:-10px;" class="navbar-brand mx-1">
+                                <img src="icon-512.png" style="margin-left:13px;margin-bottom: -11px;"
+                                     width="70" />
+                                <div>
+                                    <span style="color:#f107e7;font-size:17px;margin-left: 5px;font-weight:bolder;">HotelApp</span>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>
+                            Invoice No: @OrderDetails.Id<br />
+                            Status: PAID <br />
+                            Created: @OrderDetails.CheckInDate.ToString("dd MMMM yyy", CultureInfo.InvariantCulture)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="information">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            Room: @OrderDetails.hotelRoomDTO.Name<br />
+                            Occupancy: @OrderDetails.hotelRoomDTO.Occupancy Adults<br />
+                            Area: @OrderDetails.hotelRoomDTO.Area m
+                            <sub style="vertical-align: super; font-size: small;">2</sub>
+                        </td>
+
+                        <td>
+                            Name: @OrderDetails.Name<br />
+                            Email: @OrderDetails.Email<br />
+                            Phone: @OrderDetails.Phone
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>Payment Method</td>
+
+            <td>Paid Amount</td>
+        </tr>
+
+        <tr class="details">
+            <td>VISA</td>
+
+            <td>@OrderDetails.TotalCost $</td>
+        </tr>
+
+        <tr class="heading">
+            <td>Details</td>
+
+            <td>Amount</td>
+        </tr>
+
+        <tr class="item">
+            <td>price per one night</td>
+
+            <td>@OrderDetails.hotelRoomDTO.Price $</td>
+        </tr>
+
+        <tr class="item">
+            <td>Total nights</td>
+
+            <td>@OrderDetails.hotelRoomDTO.TotalNights nights</td>
+        </tr>
+
+        <tr class="item last">
+            <td>Bonus Amenities</td>
+
+            <td>0.00 $</td>
+        </tr>
+
+        <tr class="total">
+            <td></td>
+
+            <td>Total: @OrderDetails.TotalCost $</td>
+        </tr>
+    </table>
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private RoomOrderDetailDTO OrderDetails { get; set; } =
+                                new RoomOrderDetailDTO() { hotelRoomDTO = new HotelRoomDTOS() };
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id != 0)
+        {
+            OrderDetails = await roomOrderDetailService.GetRoomOrderDetails(Id);
+        }
+    }
+
+
+}

@@ -1,0 +1,217 @@
+﻿@page "/hotel-room"
+<div class="bg-dark border-1" style="border-radius:1rem;">
+
+
+<EditForm Model="HomeModel" OnValidSubmit="SaveBookingInfo" >
+    <DataAnnotationsValidator/>
+    <div class="mt-2 mx-2 px-0 px-md-2 mx-md-2">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="form-group">
+                    <label><strong>Check in Date</strong></label>
+                    <br />
+                    <label>@HomeModel.StartDate</label>
+                    @*<InputDate @bind-Value="HomeModel.StartDate" type="date" class="form-control" />*@
+                </div>
+            </div>
+            <div class=" text-primary col-6 col-md-3">
+                <div class="form-group">
+                    <label><strong>Check Out Date</strong></label>
+                    <br />
+                    <label>@HomeModel.EndDate</label>
+                    @*<InputDate @bind-Value="HomeModel.EndDate" disabled="disabled" readonly="readonly" type="date" class="form-control" />*@
+                </div>
+            </div>
+            <div class="text-primary col-4 col-md-3 " >
+                <div class="form-group">
+                    <label><strong>No Of Nights</strong></label>
+                    <select @bind="HomeModel.NoOfNight" class="form-control">
+                        <option  value="Select" selected disabled="disabled">How Many Nights?</option>
+                        @for (var i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-4 col-md-3">
+                <div class="form-group" style="margin-top: 1.45rem !important;">
+
+                    <input type="submit" value="Update"  class="btn btn-outline-success btn-block form-control font-weight-bold" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@if(Rooms!=null && Rooms.Any())
+{
+<div class="mt-2 mb-3 mx-2 px-0 px-md-2 mx-md-2">
+    @foreach (var room in Rooms)
+        {
+    <div class="row p-2" style="border-radius:20px; border: 1px solid #ffffff">
+        <div class="col-12 col-lg-4 col-md-3">
+            <div id="carouselExampleIndicators_@room.Id" class="carousel slide pt-3" data-ride="carousel">
+                            @{
+                                int carouselIndicatorIndex = 0;
+                                int carouselInnerIndex = 0;
+                            }
+                
+                <ol class="carousel-indicators">
+                                @foreach (var Image in room.RoomImages)
+                                {
+                                    if (carouselIndicatorIndex == 0)
+                                    {
+                                        <li data-target="#carouselExampleIndicators_@room.Id" data-slide-to="0" class="active"></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="@carouselIndicatorIndex"></li>
+
+                                    }
+                                    carouselIndicatorIndex++;
+                                }
+                </ol>
+                <div class="carousel-inner m-0">
+                    @foreach (var image in room.RoomImages)
+                                {
+                                    if (carouselInnerIndex == 0)
+                                    {
+                                        <div class="carousel-item active">
+                                            <img style="min-height: 200px" class="d-block w-100" src="@image.ImageUrl" alt="First slide">
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="carousel-item">
+                                            <img style="min-height: 200px" class="d-block w-100" src="@image.ImageUrl" alt="Second slide">
+                                        </div>
+                                    }
+                                    carouselInnerIndex++;
+                                }
+                    
+                  
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators_@room.Id" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators_@room.Id" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-8 col-md-9">
+            <div class="row pt-3">
+                <div class="col-12 col-lg-8">
+                    <p class="card-title text-warning" style="font-size:xx-large">@room.Name</p>
+                    <p class="card-text font-weight-bold">
+                        @room.Details
+                    </p>
+                </div>
+                <div class="col-12 col-lg-4">
+
+                    <div class="row pb-4">
+                        <div class="col-12 ">
+                            <div class="float-right mt-3">
+                                <strong class="float-right">Max Occupancy : @room.Occupancy adults </strong><br />
+                                <strong>Room Size : @room.Area m<sub style="vertical-align: super; font-size: small;">2</sub></strong><br />
+                                <h5 class="text-warning font-weight-bold pt-4"> @room.Price <span>USD</span></h5>
+                                            <strong class="float-right">Cost  @room.TotalAmount for @room.TotalNights nights</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-12 col-lg-11 offset-lg-1">
+                                        @if (room.IsBooked)
+                                        {
+                                            <button disabled class="btn btn-secondary d-block">Booked Room</button>
+                                        }
+                                        else
+                                        {
+                                            <a href="@($"hotel/room-details/{room.Id}")" class="btn btn-outline-warning btn-block font-weight-bold">Book</a>
+
+                                        }
+                                    </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+            
+        }
+
+
+
+    </div>
+}
+else
+{
+    <div hidden="@IsHidden" class="text-center p-5 m-5">
+        <h2>No Room Available</h2>
+    </div>
+}
+</div>
+@code{
+    public HomeVM HomeModel { get; set; } = new HomeVM();
+    public bool IsHidden { get; set; } = true;
+
+    public IEnumerable<HotelRoomDTOS> Rooms { get; set; } = new List<HotelRoomDTOS>();
+
+
+    protected async override Task OnInitializedAsync()
+    {
+        try
+        {
+            if (await LocalStorage.GetItemAsync<HomeVM>(SD.InitialRoomBookingInfo) != null)
+            {
+                HomeModel = await LocalStorage.GetItemAsync<HomeVM>(SD.InitialRoomBookingInfo);
+            }
+            else
+            {
+                HomeModel.NoOfNight = 1;
+            }
+            await LoadRooms();
+        }
+        catch (Exception ex)
+        {
+            // await java.ToastrError(ex.Message);
+            throw;
+        }
+    }
+    protected async override Task OnAfterRenderAsync(bool firstrender)
+    {
+        if (firstrender)
+        {
+            await java.InvokeVoidAsync("startCarousels");
+            firstrender = false;
+        }
+
+
+
+    }
+
+    private async Task LoadRooms()
+    {
+        Rooms = await HotelRoomService.GetHotelRoom(HomeModel.StartDate.ToString("MM/dd/yyyy"), HomeModel.EndDate.ToString("MM/dd/yyyy"));
+        if (Rooms == null) IsHidden = false;
+        foreach (var room in Rooms)
+        {
+            room.TotalAmount = room.Price * HomeModel.NoOfNight;
+            room.TotalNights = HomeModel.NoOfNight;
+        }
+    }
+
+    private async Task SaveBookingInfo()
+    {
+        HomeModel.EndDate = HomeModel.StartDate.AddDays(HomeModel.NoOfNight);
+        await LocalStorage.SetItemAsync(SD.InitialRoomBookingInfo,HomeModel);
+        await LoadRooms();
+    }
+}

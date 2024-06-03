@@ -1,0 +1,89 @@
+﻿@page "/hotel-room"
+@inject IHotelRoomRepo hotelRoomRepo
+@inject IFileUpload fileUpload
+<div class="row mt-3">
+    <div class="col-8">
+        <h3 class="card-title text-info">Hotel Rooms</h3>
+    </div>
+    <div class="row">
+    <div class="col-3 offset-1">
+        <NavLink href="/hotel-rooms-report" class="btn btn-info form-control">Print Room Report</NavLink>
+    </div>
+
+    <div class="col-3 offset-1">
+        <NavLink href="hotel-room/create" class="btn btn-info form-control">Add New Room</NavLink>
+    </div>
+    </div>
+    <div class="row mt-4">
+    <div class="col-12">
+        <table class="table table-bordered table-hover text-center">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Occupancy</th>
+                    <th>Price</th>
+                    <th>Area</th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    @if (Rooms.Any())
+                    {
+                        @foreach (var item in Rooms)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Occupancy</td>
+                                <td>@item.Price</td>
+                                <td>@item.Area</td>
+                                <td>
+                                   <NavLink href="@($"hotel-room/edit/{item.Id}")" class="btn btn-primary">Edit</NavLink>
+                                   <button class="btn btn-danger" @onclick="()=>DeleteRoom(item.Id)" >Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <th colspan="5">
+                                No Room
+                            </th>
+                        </tr>
+                    }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+@code{
+    public IEnumerable<HotelRoomDTOS> Rooms { get; set; } = new List<HotelRoomDTOS>();
+    protected  override async Task OnInitializedAsync()
+    {
+        Rooms = await hotelRoomRepo.GetAllHotelRoom();
+    }
+
+
+    public async Task DeleteRoom(int? roomId)
+    {
+        bool DeleteCofirmResult = await java.ShowConfirm();
+        if(DeleteCofirmResult && roomId != null)
+        {
+            HotelRoomDTOS room2Delete = await hotelRoomRepo.GetHotelRoom(roomId.Value);
+            foreach(var img in room2Delete.RoomImages)
+            {
+                var imgName = img.ImageUrl.Replace($"{Navigation.BaseUri}RoomImages/", "");
+                fileUpload.DeleteFile(imgName);
+            }
+            await hotelRoomRepo.DeleteHotelRoom(roomId.Value);
+            Rooms = await hotelRoomRepo.GetAllHotelRoom();
+            await java.ToastrSuccess("Room Deleted Successfully");
+
+        }
+    }
+}

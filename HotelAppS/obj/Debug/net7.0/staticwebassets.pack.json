@@ -1,0 +1,117 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\HotelAppS.bundle.scp.css",
+      "PackagePath": "staticwebassets\\HotelAppS.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\JS\\common.js",
+      "PackagePath": "staticwebassets\\JS\\common.js"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\06cf56ca-07a2-4c44-877f-d8e625434348.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\06cf56ca-07a2-4c44-877f-d8e625434348.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\4ed6449b-14a9-4d25-b7f7-be83c1f208a6.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\4ed6449b-14a9-4d25-b7f7-be83c1f208a6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\5815b010-f04e-45f6-a0a0-faebe213cf1c.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\5815b010-f04e-45f6-a0a0-faebe213cf1c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\7a6e2cf0-543e-4f40-8145-0db0ae7e7a7a.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\7a6e2cf0-543e-4f40-8145-0db0ae7e7a7a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\86ad2630-68db-4942-8f8e-fffe86d77eb1.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\86ad2630-68db-4942-8f8e-fffe86d77eb1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\8c727b45-86d5-4eeb-9bc2-99dd3daae6cd.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\8c727b45-86d5-4eeb-9bc2-99dd3daae6cd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\a6d61994-c550-4df1-9b3a-bbf273468b30.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\a6d61994-c550-4df1-9b3a-bbf273468b30.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\e55e2e7f-3475-4ceb-bab3-aa221df9020c.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\e55e2e7f-3475-4ceb-bab3-aa221df9020c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\RoomImages\\ebfe72dc-3dcb-473a-af0d-c71267e64ddb.jpg",
+      "PackagePath": "staticwebassets\\RoomImages\\ebfe72dc-3dcb-473a-af0d-c71267e64ddb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\jacob\\Desktop\\HotelApp1\\HotelAppS\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.HotelAppS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.HotelAppS.props",
+      "PackagePath": "build\\HotelAppS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.HotelAppS.props",
+      "PackagePath": "buildMultiTargeting\\HotelAppS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.HotelAppS.props",
+      "PackagePath": "buildTransitive\\HotelAppS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

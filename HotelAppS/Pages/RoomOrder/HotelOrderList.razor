@@ -1,0 +1,42 @@
+﻿@page "/hotel-order"
+@using Business.IRepo
+@inject IRoomOrderRepo RoomOrderRepo
+@attribute [Authorize(Roles =SD.Role_Admin)]
+
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true"
+                FilterMode="FilterMode.Advanced" Style="text-align:left;"
+                PageSize="5" AllowPaging="true" AllowSorting="true"
+                Data="@HotelOrders" TItem="RoomOrderDetailDTO" ColumnWidth="130px"
+                LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="Id" Title="Id" Width="60px" />
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="Email" Title="Email" />
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="HotelRoomDTO.Name" Title="Room" />
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="Status" Title="Status" />
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="CheckInDate" Title="Check In Date">
+            <Template Context="data">
+                @string.Format("{0:d}", data.CheckInDate)
+            </Template>
+        </RadzenDataGridColumn>
+        <RadzenDataGridColumn TItem="RoomOrderDetailDTO" Property="Id" Title="">
+            <Template Context="data">
+                <NavLink class="btn btn-primary" href="@($"hotel-order/details/{data.Id}")">
+                    Details
+                </NavLink>
+            </Template>
+        </RadzenDataGridColumn>
+    </Columns>
+</RadzenDataGrid>
+
+
+@code{
+
+    public IEnumerable<RoomOrderDetailDTO> HotelOrders { get; set; } = new List<RoomOrderDetailDTO>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        HotelOrders = await RoomOrderRepo.GetAllOrder();
+    }
+}

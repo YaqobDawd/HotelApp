@@ -1,0 +1,83 @@
+﻿@page "/hotel-rooms-report"
+@inject IHotelRoomRepo HotelRoomRepository
+@attribute [Authorize(Roles = SD.Role_Admin)]
+@layout BlankLayout
+<AuthorizeView>
+    <Authorized>
+        <div class="p-2">
+            <div class="row mt-1">
+                <div class="col-6 offset-3 text-center bg-secondary ">
+                    <h3 class="text-light p-3">Hotel Rooms Report</h3>
+                </div>
+            </div>
+            <div class="text-dark text-left pt-3"> <strong>Report Date : </strong> @DateTime.Now.ToString("dddd dd MMMM yyyy , hh:mm:ss tt")</div>
+            <div class="text-dark text-left pt-2"> <strong>Report Issuer : </strong> @(context.User.Identity.Name.Substring(0, context.User.Identity.Name.IndexOf("@")))</div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Room Id</th>
+                                <th>Name</th>
+                                <th>Occupancy</th>
+                                <th>Price</th>
+                                <th>Area</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Rooms.Any())
+                            {
+                                @foreach (var Room in Rooms)
+                                {
+                                    <tr>
+                                        <td>@(index++)</td>
+                                        <td>@Room.Id</td>
+                                        <td>@Room.Name</td>
+                                        <td>@Room.Occupancy</td>
+                                        <td>@Room.Price.ToString("c")</td>
+                                        <td>@Room.Area</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <th colspan="5">
+                                        No Rooms
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="text-center bg-secondary">
+                        <h5 class="text-light p-2">Total Rooms Number Equal @(index-1) Rooms.</h5>
+                    </div>
+                    <div class="pt-3 pr-5 mb-5 float-right"> <h5>Signature </h5> </div>
+                </div>
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <h2>You Are Not Authorized To Display This Report!</h2>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+@code {
+    int index = 1;
+    public IEnumerable<HotelRoomDTOS> Rooms { get; set; } = new List<HotelRoomDTOS>();
+    protected override async Task OnInitializedAsync()
+    {
+        Rooms = await HotelRoomRepository.GetAllHotelRoom();
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await java.InvokeVoidAsync("print");
+        }
+    }
+}

@@ -1,0 +1,95 @@
+﻿@page "/hotel-amenity/create"
+@page "/hotel-amenity/edit/{AmenityId:int}"
+@inject IHotelAmenityRepo hotelAmenityRepo
+<div class="row">
+    <h3 class="card-title text-info">@Title hotel Amenity</h3>
+    <div class="col-md-12">
+        <EditForm Model="AmenityModal" OnValidSubmit="UpsertAmenity">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <div class="form-grou">
+                <label>Amenity Name</label>
+                <InputText @bind-Value="AmenityModal.AmenityName" class="form-control" autofocus/>
+                <ValidationMessage For="()=>AmenityModal.AmenityName"/>
+            </div>
+            <div class="form-grou">
+                <label>Amenity Time</label>
+                <InputText @bind-Value="AmenityModal.AmenityTimming" class="form-control"  />
+                <ValidationMessage For="()=>AmenityModal.AmenityTimming" />
+            </div>
+            <div class="form-grou">
+                <label>Amenity Description</label>
+                <InputText @bind-Value="AmenityModal.AmenityDescription" class="form-control"  />
+                <ValidationMessage For="()=>AmenityModal.AmenityDescription" />
+            </div>
+            <div class="form-grou">
+                <label>Amenity Icon</label>
+                <InputText @bind-Value="AmenityModal.AmenityIcon" class="form-control"  />
+                <ValidationMessage For="()=>AmenityModal.AmenityIcon" />
+            </div>
+
+            <div class="form-group mt-2">
+                <button class="btn btn-primary">@Title Amenity</button>
+                <NavLink href="hotel-amenity" class="btn btn-secondary">Back</NavLink>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+
+
+
+@code{
+    [Parameter]
+    public int? AmenityId{ get; set; }
+    public HotelAmenityDTO AmenityModal { get; set; } = new HotelAmenityDTO();
+    public string Title { get; set; } = "Create";
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AmenityId != null)
+        {
+            //update
+            Title = "Update";
+            AmenityModal = await hotelAmenityRepo.GetHotelAmenity(AmenityId.Value);
+        }
+        else
+        {
+            AmenityModal = new HotelAmenityDTO();
+        }
+    }
+
+
+
+
+    private async Task UpsertAmenity()
+    {
+        try
+        {
+            bool isUnique = await hotelAmenityRepo.IsAmenityUnique(AmenityModal.AmenityName, AmenityModal.AmenityId);
+            if (!isUnique)
+            {
+                await java.ToastrError("Amenity Name is already exist");
+                return;
+            }
+            if(AmenityModal.AmenityId!=0 && Title== "Update")
+            {
+                //Update
+                var updateAmenity = await hotelAmenityRepo.UpdateHotelAmenity(AmenityModal, AmenityModal.AmenityId);
+                Navigation.NavigateTo("hotel-Amenity");
+                await java.ToastrSuccess("hotel Amenity Updated");
+
+            }
+            else
+            {
+                var createdAmenity = await hotelAmenityRepo.CreateHotelAmenity(AmenityModal);
+                Navigation.NavigateTo("hotel-amenity");
+                await java.ToastrSuccess("hotel Amenity has been Added");
+            }
+        }
+        catch (Exception)
+        {
+            
+            throw;
+        }
+    }
+}

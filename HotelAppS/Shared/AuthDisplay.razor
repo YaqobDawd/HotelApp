@@ -1,0 +1,17 @@
+﻿<CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <h3>Wellcom @context.User.Identity.Name</h3>
+            <NavLink href="Identity/Account/Logout">Log Out</NavLink>
+        </Authorized>
+        <NotAuthorized>
+            <NavLink href="Identity/Account/Register">Register</NavLink>
+            <NavLink href="Identity/Account/Login">Login</NavLink>
+
+        </NotAuthorized>
+    </AuthorizeView>
+
+</CascadingAuthenticationState>
+
+
+
